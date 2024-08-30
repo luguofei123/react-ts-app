@@ -4,7 +4,7 @@
  * @Author: lugfa
  * @Date: 2024-08-29 19:12:54
  * @LastEditors: lugfa
- * @LastEditTime: 2024-08-29 19:13:12
+ * @LastEditTime: 2024-08-30 09:44:05
  * @FilePath: /react-ts-app/craco.config.js
  */
 const path = require('path')
@@ -22,6 +22,14 @@ module.exports = {
     /* 别名 */
     alias: {
       '@': resolve('src')
+    }
+  },
+  devServer: {
+    /* 端口 */
+    port: 3002,
+    /* 允许跨域 */
+    headers: {
+      'Access-Control-Allow-Origin': '*'
     }
   }
 }
