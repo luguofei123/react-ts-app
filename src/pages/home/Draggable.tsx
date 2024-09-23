@@ -4,7 +4,7 @@
  * @Author: lugfa
  * @Date: 2024-08-30 16:55:34
  * @LastEditors: lugfa
- * @LastEditTime: 2024-08-31 10:56:48
+ * @LastEditTime: 2024-09-12 09:48:48
  * @FilePath: /react-ts-app/src/pages/home/Draggable.tsx
  */
 
@@ -13,7 +13,9 @@ import { CSS } from '@dnd-kit/utilities'
 
 function Draggable(props: any) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: props.id
+    id: props.id,
+    data: props.data,
+    disabled: false
   })
   const style = transform
     ? {
