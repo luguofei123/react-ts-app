@@ -4,37 +4,53 @@
  * @Author: lugfa
  * @Date: 2024-08-30 10:22:50
  * @LastEditors: lugfa
- * @LastEditTime: 2024-09-23 19:38:42
+ * @LastEditTime: 2024-09-26 20:39:28
  * @FilePath: /react-ts-app/src/pages/test1/test.tsx
  */
 import React, { useState, useEffect } from 'react'
 import store from '@/redux/store'
 import { addNumberAction } from '@/redux/actions'
 
+import { useSelector, useDispatch } from 'react-redux'
+import utils from '@/utils'
+
 function Test() {
-  let [userInfo, setUserInfo] = useState(store.getState().userInfo)
+  // let [userInfo, setUserInfo] = useState(store.getState().userInfo)
 
-  useEffect(() => {
-    let unsubscribe = store.subscribe(() => {
-      let { userInfo } = store.getState()
+  // const { userInfo } = useSelector((state: any) => {
+  //   debugger
+  //   return state
+  // })
+  const { name, tel } = useSelector((state: any) => state.userInfo)
 
-      setUserInfo(userInfo)
-    })
+  const dispatch = useDispatch()
 
-    return () => {
-      unsubscribe()
-    }
-  }, [])
+  // useEffect(() => {
+  //   let unsubscribe = store.subscribe(() => {
+  //     let { userInfo } = store.getState()
+
+  //     // setUserInfo(userInfo)
+  //   })
+
+  //   return () => {
+  //     unsubscribe()
+  //   }
+  // }, [])
 
   function addNumber() {
-    store.dispatch(addNumberAction({ name: 'luguofei', tel: Math.random() }))
+    dispatch(addNumberAction({ name: 'luguofei', tel: Math.random() }))
+    // store.dispatch(addNumberAction({ name: 'luguofei', tel: Math.random() }))
   }
+  const addNumber1 = utils.debounce(() => {
+    console.log(2222)
+  }, 300)
 
   return (
     <div>
-      <button onClick={addNumber}>测试按钮</button>
-      <div>{userInfo.name}</div>
-      <div>{userInfo.tel}</div>
+      <button onClick={addNumber}>测试按钮222</button>
+      <div>{name}</div>
+      <div>{tel}</div>
+      <button onClick={addNumber1}>测试按钮防抖</button>
     </div>
   )
 }

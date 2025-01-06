@@ -4,7 +4,7 @@
  * @Author: lugfa
  * @Date: 2024-09-19 13:14:27
  * @LastEditors: lugfa
- * @LastEditTime: 2024-09-19 15:00:57
+ * @LastEditTime: 2024-09-30 13:22:50
  * @FilePath: /react-ts-app/src/utils/index.js
  */
 export default {
@@ -74,5 +74,27 @@ export default {
         resolve(true)
       }, time)
     })
+  },
+  // 节流和防抖的区别
+  // 防抖 表示连续多次点击只会执行最后一次
+  // 防抖函数
+  debounce(func, delay) {
+    let timeoutId
+    return function (...args) {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => func.apply(this, args), delay)
+    }
+  },
+  // 节流函数
+  // 表示一段时间内只会执行一次
+  throttle(func, limit) {
+    let inThrottle
+    return function (...args) {
+      if (!inThrottle) {
+        func.apply(this, args)
+        inThrottle = true
+        setTimeout(() => (inThrottle = false), limit)
+      }
+    }
   }
 }
