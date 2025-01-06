@@ -4,7 +4,7 @@
  * @Author: lugfa
  * @Date: 2024-08-29 19:12:54
  * @LastEditors: lugfa
- * @LastEditTime: 2025-01-06 16:18:59
+ * @LastEditTime: 2025-01-06 16:21:40
  * @FilePath: /react-ts-app/craco.config.js
  */
 const path = require('path')
@@ -36,6 +36,15 @@ module.exports = {
     /* 允许跨域 */
     headers: {
       'Access-Control-Allow-Origin': '*'
+    },
+    proxy: {
+      '/api': {
+        target: 'http://114.215.183.171:5002',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/api'
+        }
+      }
     }
   }
 }
