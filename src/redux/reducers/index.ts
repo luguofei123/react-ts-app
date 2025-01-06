@@ -4,7 +4,7 @@
  * @Author: lugfa
  * @Date: 2024-09-23 13:55:14
  * @LastEditors: lugfa
- * @LastEditTime: 2024-09-26 20:29:22
+ * @LastEditTime: 2025-01-06 14:28:24
  * @FilePath: /react-ts-app/src/redux/reducers/index.ts
  */
 // reducer: 是一个纯函数,(返回值依赖于参数,并且对外界无副作用只要是同样的输入，必定得到同样的输出。 )
@@ -13,7 +13,7 @@
 // 需要return state
 // 在修改 state 中的数据的时候, 最好先利用深拷贝 拷贝 state 中的数据, 防止在后续的开发中出现错误
 
-import { SET_INFO } from '../constants'
+import * as actionTypes from '../constants'
 import { combineReducers } from 'redux'
 
 // 单一数据源：整个应用的 state 被储存在一棵 object tree 中，并且这个 object tree 只存在于唯一一个 store 中
@@ -21,13 +21,16 @@ import { combineReducers } from 'redux'
 // 使用纯函数来执行修改: 为了描述 action 如何改变 state tree ，你需要编写 reducers
 // reducer 函数的返回是一个新的 state
 
-const initialState = { name: '鲁飞', tel: '18911563700' }
+const initialState = { name: '鲁飞', tel: '18911563700', age: 18 }
 
 const userInfo = (state = initialState, action: any) => {
   switch (action.type) {
-    case SET_INFO:
-      debugger
-      return action.userInfo
+    case actionTypes.SET_NAME:
+      return { ...state, ...action.data }
+    case actionTypes.SET_TEL:
+      return { ...state, ...action.data }
+    case actionTypes.SET_AGE:
+      return { ...state, ...action.data }
     default:
       return state
   }
