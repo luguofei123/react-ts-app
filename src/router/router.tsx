@@ -4,11 +4,12 @@
  * @Author: lugfa
  * @Date: 2024-08-30 09:52:12
  * @LastEditors: lugfa
- * @LastEditTime: 2025-01-06 15:50:55
+ * @LastEditTime: 2025-01-06 17:07:16
  * @FilePath: /react-ts-app/src/router/router.tsx
  */
-import { useRoutes } from 'react-router-dom'
+// import { useRoutes } from 'react-router-dom'
 import { Suspense, lazy } from 'react'
+import { useRoutes, HashRouter, Route } from 'react-router-dom'
 
 interface LazyLoadProps {
   path: string
