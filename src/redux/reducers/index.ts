@@ -4,7 +4,7 @@
  * @Author: lugfa
  * @Date: 2024-09-23 13:55:14
  * @LastEditors: lugfa
- * @LastEditTime: 2025-01-06 14:28:24
+ * @LastEditTime: 2025-01-06 14:53:16
  * @FilePath: /react-ts-app/src/redux/reducers/index.ts
  */
 // reducer: 是一个纯函数,(返回值依赖于参数,并且对外界无副作用只要是同样的输入，必定得到同样的输出。 )
