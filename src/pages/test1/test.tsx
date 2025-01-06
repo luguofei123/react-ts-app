@@ -4,12 +4,12 @@
  * @Author: lugfa
  * @Date: 2024-08-30 10:22:50
  * @LastEditors: lugfa
- * @LastEditTime: 2025-01-06 14:53:37
+ * @LastEditTime: 2025-01-06 15:35:34
  * @FilePath: /react-ts-app/src/pages/test1/test.tsx
  */
 import React, { useState, useEffect } from 'react'
 // import store from '@/redux/store'
-import { setName, setTel, setAge } from '@/redux/actions'
+import { setName, setTel, setAge } from '@/redux/userInfo/actions'
 
 import { useSelector, useDispatch } from 'react-redux'
 import utils from '@/utils'
@@ -21,7 +21,10 @@ function Test() {
   //   debugger
   //   return state
   // })
-  let { name, tel, age } = useSelector((state: any) => state.userInfo)
+  let { name, tel, age } = useSelector((state: any) => {
+    debugger
+    return state.userInfo
+  })
 
   const dispatch = useDispatch()
 

@@ -4,7 +4,7 @@
  * @Author: lugfa
  * @Date: 2024-08-30 09:52:12
  * @LastEditors: lugfa
- * @LastEditTime: 2024-08-30 13:35:47
+ * @LastEditTime: 2025-01-06 15:50:55
  * @FilePath: /react-ts-app/src/router/router.tsx
  */
 import { useRoutes } from 'react-router-dom'
@@ -31,6 +31,10 @@ function Router() {
     {
       path: '/test1',
       element: <LazyLoad path="/test1" />
+    },
+    {
+      path: '/test2',
+      element: <LazyLoad path="/test2" />
     }
   ])
 }
