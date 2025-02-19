@@ -4,10 +4,10 @@
  * @Author: lugfa
  * @Date: 2024-08-30 10:22:50
  * @LastEditors: lugfa
- * @LastEditTime: 2025-01-06 15:35:34
+ * @LastEditTime: 2025-02-19 14:04:03
  * @FilePath: /react-ts-app/src/pages/test1/test.tsx
  */
-import React, { useState, useEffect } from 'react'
+// import React, { useState, useEffect } from 'react'
 // import store from '@/redux/store'
 import { setName, setTel, setAge } from '@/redux/userInfo/actions'
 
@@ -68,6 +68,7 @@ function Test() {
       <div>{tel}</div>
       <div>{age}</div>
       <button onClick={addNumber1}>测试按钮防抖</button>
+      <span>{utils.toThousandFix('3.4444')}</span>
     </div>
   )
 }
